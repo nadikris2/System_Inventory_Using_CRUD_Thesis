@@ -44,7 +44,11 @@ CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `barang` varchar(45) NOT NULL,
   `harga` int(11) NOT NULL,
-  `jumlah` int(11) NOT NULL,
+  `stocks` int(11) NOT NULL,
+  `tnglbarangmasuk` datetime NOT NULL
+  `tnglbarangkeluar` datetime NOT NULL
+  `jmlhbarangkeluar` int(11) NOT NULL,
+  `jmlhbarangmasuk` int(11) NOT NULL,
   `user_id` int(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -68,8 +72,11 @@ CREATE TABLE `transactions` (
 CREATE TABLE `transaction_products` (
   `id` int(11) NOT NULL,
   `transaction_id` int(11) NOT NULL,
+  `jmlhbarangmasuk` int(11) NOT NULL,
+  `jmlhbarangkeluar` int(11) NOT NULL,
+  `product_qty` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `product_qty` int(11) NOT NULL
+  `product_qty` int(11) NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
