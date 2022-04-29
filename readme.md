@@ -18,4 +18,4 @@ How to setup
 
 3.dump sql to your local machine
 
-4.run project python run.py and visit localhost:5000
+4.run project python main.py and visit localhost:5000
