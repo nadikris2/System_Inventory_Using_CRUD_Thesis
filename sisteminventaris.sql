@@ -49,7 +49,6 @@ CREATE TABLE `products` (
   `tnglbarangkeluar` datetime NOT NULL
   `jmlhbarangkeluar` int(11) NOT NULL,
   `jmlhbarangmasuk` int(11) NOT NULL,
-  `user_id` int(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
