@@ -1,0 +1,28 @@
+{
+    %extends 'templates/base.html'%
+}
+{
+    %block content%
+}
+
+<form action="" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="barang">Nama Barang</label>
+        <input type="text" class="form-control" id="barang" name="barang" placeholder="Masukkan Nama barang" />
+    </div>
+    <div class="form-group">
+        <label for="harga">Harga</label>
+        <input name="harga" type="text" class="form-control" id="harga" placeholder="harga">
+    </div>
+    <div class="form-group">
+        <label for="jumlah">Jumlah Barang Masuk</label>
+        <input name="stocks" type="text" class="form-control" id="stocks" placeholder="stocks" value = "1" min="1" step = "1">
+    </div>
+    <div class="form-group">
+        <label for="jumlah">Jumlah Barang Keluar</label>
+        <input name="stocks" type="text" class="form-control" id="stocks" placeholder="stocks" value = "1" min="1" step = "1">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
