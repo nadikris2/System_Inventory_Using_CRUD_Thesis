@@ -1,0 +1,77 @@
+{
+    %extends 'templates/base.html'%
+}
+{
+    %block content%
+}
+
+<body>
+    <table class="table table-dark" id="Product">
+        <thead class="thead-dark">
+            
+        </thead>
+        <tr>
+            <th>id</th>
+            <th>products</th>
+            <th>create on</th>
+        </tr>
+        </table>
+        {% for transaction in transactions %}
+        <td>
+            {{ transaction.id }}
+        </td>
+        <td>
+            <ul>
+            {% for transaction_product in transaction.transaction_products %}
+                <li>{{ transaction_product.product.name }} = {{ transaction_product.product_qty }}</li>
+            {% endfor %}
+            </ul>
+        </td>
+        <td>
+            {{ transaction.create_on }}
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    
+    input type="button" onclick="generate()" value="Export To PDF" />  
+
+    <script type="text/javascript">  
+        function generate() {  
+            var doc = new jsPDF('p', 'pt', 'letter');  
+            var htmlstring = '';  
+            var tempVarToCheckPageHeight = 0;  
+            var pageHeight = 0;  
+            pageHeight = doc.internal.pageSize.height;  
+            specialElementHandlers = {  
+                // element with id of "bypass" - jQuery style selector  
+                '#bypassme': function(element, renderer) {  
+                    // true = "handled elsewhere, bypass text extraction"  
+                    return true  
+                }  
+            };  
+            margins = {  
+                top: 150,  
+                bottom: 60,  
+                left: 40,  
+                right: 40,  
+                width: 600  
+            };  
+            var y = 1000;  
+            doc.setLineWidth(2);  
+            doc.text(2000, y = y + 30, "Products");  
+            doc.autoTable({  
+                html: '#Products',  
+                startY: 70,  
+                theme: 'grid',  
+                
+                styles: {  
+                    minCellHeight: 40  
+                }  
+            })  
+            doc.save('Products.pdf');  
+        }  
+        </script>   
+{% endblock %}
+
+</body>
