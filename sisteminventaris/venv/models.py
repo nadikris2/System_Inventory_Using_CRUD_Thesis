@@ -10,7 +10,7 @@ from werkzeug.security import generate_password_hash
 
 class Products(db.Model):
     id = db.Column(db.Integer, primary_key=True,autoincrement=True)
-    barang = db.Column(db.string, nullable=False)
+    barang = db.Column(db.String, nullable=False)
     harga = db.Column(db.Integer, nullable=False)
     stocks = db.Column(db.Integer, nullable=False)
     tnglbarangmasuk = db.Column(db.DateTime, nullable=False)
